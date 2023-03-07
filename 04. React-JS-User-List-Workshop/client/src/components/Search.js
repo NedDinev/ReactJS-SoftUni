@@ -37,13 +37,13 @@ export default function Search() {
 
       <div className="filter">
         <span>Search Criteria:</span>
-        <select name="criteria" className="criteria" value="">
+        {/* <select name="criteria" className="criteria" value="">
           <option value="">Not selected</option>
           <option value="">First Name</option>
           <option value="">Last Name</option>
           <option value="">Email</option>
           <option value="">Phone</option>
-        </select>
+        </select> */}
       </div>
     </form>
   );
