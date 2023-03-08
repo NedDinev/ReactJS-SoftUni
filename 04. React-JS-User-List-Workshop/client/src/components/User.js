@@ -1,5 +1,5 @@
 export default function User(props) {
-  const { user } = props;
+  const { user, onInfoClick } = props;
   return (
     <tr key={user._id}>
       <td>
@@ -46,7 +46,11 @@ export default function User(props) {
             ></path>
           </svg>
         </button>
-        <button className="btn info-btn" title="Info">
+        <button
+          className="btn info-btn"
+          title="Info"
+          onClick={() => onInfoClick(user._id)}
+        >
           <svg
             aria-hidden="true"
             focusable="false"
