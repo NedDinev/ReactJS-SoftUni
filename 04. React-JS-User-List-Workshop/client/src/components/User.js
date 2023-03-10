@@ -1,5 +1,5 @@
 export default function User(props) {
-  const { user, onInfoClick } = props;
+  const { user, onInfoClick, onDeleteClick, onEditClick } = props;
   return (
     <tr key={user._id}>
       <td>
@@ -12,7 +12,11 @@ export default function User(props) {
       <td>{user.createdAt}</td>
 
       <td className="actions">
-        <button className="btn edit-btn" title="Edit">
+        <button
+          className="btn edit-btn"
+          title="Edit"
+          onClick={() => onEditClick(user._id)}
+        >
           <svg
             aria-hidden="true"
             focusable="false"
@@ -29,7 +33,11 @@ export default function User(props) {
             ></path>
           </svg>
         </button>
-        <button className="btn delete-btn" title="Delete">
+        <button
+          className="btn delete-btn"
+          title="Delete"
+          onClick={() => onDeleteClick(user._id)}
+        >
           <svg
             aria-hidden="true"
             focusable="false"

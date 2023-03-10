@@ -4,11 +4,15 @@ import User from "./User";
 import UserDetails from "./UserDetails";
 import * as userService from "../services/userService";
 import { formatDate } from "../utils/dateUtils";
+import DeleteUser from "./DeleteUser";
+import EditUser from "./EditUser";
 
 export default function Table(props) {
-  const { users } = props;
+  const { users, refreshTable, onUserEditSubmit } = props;
 
   const [selectedUser, setSelectedUser] = useState(null);
+  const [deleteUser, setDeleteUser] = useState(null);
+  const [showEditUser, setShowEditUser] = useState(null);
 
   const onInfoClick = async (userId) => {
     const user = await userService.getOne(userId);
@@ -16,12 +20,54 @@ export default function Table(props) {
     setSelectedUser(user);
   };
 
+  const onDeleteClick = async (userId) => {
+    const user = await userService.getOne(userId);
+
+    setDeleteUser(user);
+  };
+
+  const onEditClick = async (userId) => {
+    const user = await userService.getOne(userId);
+
+    setShowEditUser(user);
+  };
+
+  const closeDelete = async () => {
+    setDeleteUser(null);
+  };
+
+  const closeInfo = async () => {
+    setSelectedUser(null);
+  };
+
+  const closeNewUserForm = () => {
+    setShowEditUser(null);
+  };
+
+  const onUserUpdateClick = (e, userId) => {
+    onUserEditSubmit(e, userId);
+    closeNewUserForm();
+  };
+
   return (
     <>
       {selectedUser && (
-        <UserDetails
-          selectedUser={selectedUser}
-          setSelectedUser={setSelectedUser}
+        <UserDetails selectedUser={selectedUser} closeInfo={closeInfo} />
+      )}
+
+      {deleteUser && (
+        <DeleteUser
+          deleteUser={deleteUser}
+          closeDelete={closeDelete}
+          refreshTable={refreshTable}
+        />
+      )}
+
+      {showEditUser && (
+        <EditUser
+          showEditUser={showEditUser}
+          closeNewUserForm={closeNewUserForm}
+          onUserUpdateClick={onUserUpdateClick}
         />
       )}
       <div className="table-wrapper">
@@ -198,7 +244,13 @@ export default function Table(props) {
             {users.map((user) => {
               user.createdAt = formatDate(user.createdAt);
               return (
-                <User key={user._id} user={user} onInfoClick={onInfoClick} />
+                <User
+                  key={user._id}
+                  user={user}
+                  onInfoClick={onInfoClick}
+                  onEditClick={onEditClick}
+                  onDeleteClick={onDeleteClick}
+                />
               );
             })}
           </tbody>
