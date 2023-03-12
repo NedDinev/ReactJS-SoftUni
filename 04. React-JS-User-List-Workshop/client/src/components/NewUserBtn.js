@@ -2,7 +2,8 @@ import { useState } from "react";
 import CreateUser from "./CreateUser";
 
 export default function NewUserBtn(props) {
-  const { onUserCreatedSubmit } = props;
+  const { onUserCreatedSubmit, formValues, formChangeHandler, formErrors } =
+    props;
   const [newUserForm, setNewUserForm] = useState(false);
 
   const openNewUserForm = () => {
@@ -17,14 +18,15 @@ export default function NewUserBtn(props) {
     closeNewUserForm();
   };
 
-  
-
   return (
     <>
       {newUserForm && (
         <CreateUser
           closeNewUserForm={closeNewUserForm}
           onUserAddClick={onUserAddClick}
+          formValues={formValues}
+          formChangeHandler={formChangeHandler}
+          formErrors={formErrors}
         />
       )}
       <button className="btn-add btn" onClick={openNewUserForm}>

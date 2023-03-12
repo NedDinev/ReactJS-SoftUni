@@ -7,6 +7,32 @@ import * as userService from "../services/userService";
 
 export default function Section() {
   const [users, setUsers] = useState([]);
+  const [formValues, setFormValues] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    imageUrl: "",
+    phoneNumber: "",
+    address: {
+      country: "",
+      city: "",
+      street: "",
+      streetNumber: "",
+    },
+  });
+  const [formErrors, setFormErrors] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    imageUrl: "",
+    phoneNumber: "",
+    address: {
+      country: "",
+      city: "",
+      street: "",
+      streetNumber: "",
+    },
+  });
 
   useEffect(() => {
     userService
@@ -54,6 +80,50 @@ export default function Section() {
   const refreshTable = async () =>
     await userService.getAll().then((users) => setUsers(users));
 
+  const formChangeHandler = (e) => {
+    const value = e.target.value;
+    const errors = {};
+
+    if (e.target.name === "firstName" && value.length < 3) {
+      errors.firstName = "First name should be between 3 and 20 characters";
+    }
+    if (e.target.name === "lastName" && value.length < 3) {
+      errors.lastName = "Last name should be between 3 and 20 characters";
+    }
+    if (e.target.name === "email" && value.length < 3 && value.includes("@")) {
+      errors.lastName = "Email should be at lest 3 characters long";
+    }
+    if (
+      e.target.name === "phoneNumber" &&
+      (value.length < 3 || value.length > 10) &&
+      value.charAt(0) === 0
+    ) {
+      errors.lastName =
+        "Phone number should start with 0 and should be 10 characters long";
+    }
+    if (
+      e.target.name === "country" &&
+      (value.length < 3 || value.length > 20)
+    ) {
+      errors.lastName = "Last name should be between 3 and 20 characters";
+    }
+    if (e.target.name === "city" && (value.length < 3 || value.length > 20)) {
+      errors.lastName = "Last name should be between 3 and 20 characters";
+    }
+    if (e.target.name === "street" && (value.length < 3 || value.length > 20)) {
+      errors.lastName = "Last name should be between 3 and 20 characters";
+    }
+    if (
+      e.target.name === "streetNumber" &&
+      (value.length < 3 || value.length > 20)
+    ) {
+      errors.lastName = "Last name should be between 3 and 20 characters";
+    }
+    setFormErrors(errors);
+
+    setFormValues((state) => ({ ...state, [e.target.name]: e.target.value }));
+  };
+
   return (
     <section className="card users-container">
       <Search />
@@ -62,7 +132,12 @@ export default function Section() {
         refreshTable={refreshTable}
         onUserEditSubmit={onUserEditSubmit}
       />
-      <NewUserBtn onUserCreatedSubmit={onUserCreatedSubmit} />
+      <NewUserBtn
+        onUserCreatedSubmit={onUserCreatedSubmit}
+        formChangeHandler={formChangeHandler}
+        formValues={formValues}
+        formErrors={formErrors}
+      />
       <Pagination />
     </section>
   );
