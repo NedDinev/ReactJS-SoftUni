@@ -1,0 +1,51 @@
+{
+  "766607eb-e751-4441-94c8-386f2553b9fd": {
+    "title": "Naruto Storm Trilogy",
+    "category": "Fighter",
+    "maxLevel": "1",
+    "imageUrl": "https://image.api.playstation.com/cdn/EP0700/CUSA06291_00/7wGBDrgVjegXCJDdrNZQdYfPWC26MnHs.png",
+    "summary": "Be the best ninja",
+    "_id": "766607eb-e751-4441-94c8-386f2553b9fd"
+  },
+
+  "75b0ecd7-49ce-4118-ad22-48961a256b97": {
+    "title": "Elden Ring",
+    "category": "Fantasy",
+    "maxLevel": "4",
+    "imageUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202108/0410/0Jz6uJLxOK7JOMMfcfHFBi1D.png",
+    "summary": "Set in a world where fantasy creatures live side by side with humans. A human cop is forced to work with an Orc to find a weapon everyone is prepared to kill for. Set in a world where fantasy creatures live side by side with humans. A human cop is forced to work with an Orc to find a weapon everyone is prepared to kill for.",
+    "_id": "75b0ecd7-49ce-4118-ad22-48961a256b97"
+  },
+  "4a1a2c34-b52d-4b76-a404-35899f6d9b11": {
+    "title": "Doom",
+    "category": "Gore",
+    "maxLevel": "100",
+    "imageUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202009/2814/GGyEnCkIXoyiVlN9sRHkzUPo.png",
+    "summary": "You are doomed",
+    "_id": "4a1a2c34-b52d-4b76-a404-35899f6d9b11"
+  },
+  "608e04c0-feda-4cac-b400-ecfdd896a662": {
+    "title": "World of warcraft",
+    "category": "MMORPG",
+    "maxLevel": "60",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/en/6/65/World_of_Warcraft.png",
+    "summary": "Most addicting game",
+    "_id": "608e04c0-feda-4cac-b400-ecfdd896a662"
+  },
+  "a586e622-28ab-4f0d-82e3-f3084c854063": {
+    "title": "CS:GO",
+    "category": "Shooter",
+    "maxLevel": "25",
+    "imageUrl": "https://assets.reedpopcdn.com/valve-finally-fixes-cs-go-exploit-that-could-give-hackers-control-of-pcs-1618873687714.jpg/BROK/thumbnail/1200x1200/quality/100/valve-finally-fixes-cs-go-exploit-that-could-give-hackers-control-of-pcs-1618873687714.jpg",
+    "summary": "Classic",
+    "_id": "a586e622-28ab-4f0d-82e3-f3084c854063"
+  },
+  "ad522f9b-5531-43bb-84c3-135bbfbc0d63": {
+    "title": "Devil May Cry 5",
+    "category": "Fantasy",
+    "maxLevel": "20",
+    "imageUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202009/1710/UUnpHLJqLAIJX5HioswiPuAm.png",
+    "summary": "DEVIL MAY CRY IS BACK, BABY!! The legendary stylish action game is better than ever in the ultimate version of this multi-award winning hit.",
+    "_id": "ad522f9b-5531-43bb-84c3-135bbfbc0d63"
+  }
+}
